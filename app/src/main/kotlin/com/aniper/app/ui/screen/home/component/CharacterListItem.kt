@@ -18,7 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.aniper.app.domain.model.Character
+import com.aniper.app.domain.model.Motion
 import com.aniper.app.ui.component.common.AnIperButton
+import com.aniper.app.ui.component.common.AnIperOutlinedButton
 import com.aniper.app.ui.component.common.GifImage
 import com.aniper.app.ui.theme.BackgroundSecondary
 import com.aniper.app.ui.theme.TextPrimary
@@ -55,7 +57,7 @@ fun CharacterListItem(
                 .clip(RoundedCornerShape(8.dp))
         ) {
             GifImage(
-                model = character.motions[com.aniper.app.domain.model.Motion.IDLE],
+                model = character.motions[Motion.IDLE],
                 contentDescription = character.name,
                 modifier = Modifier.matchParentSize()
             )
@@ -98,7 +100,7 @@ fun CharacterListItem(
                         onClick = onSummonClick,
                         modifier = Modifier.height(36.dp)
                     )
-                    com.aniper.app.ui.component.common.AnIperOutlinedButton(
+                    AnIperOutlinedButton(
                         text = "제거",
                         onClick = onRemoveClick,
                         modifier = Modifier.height(36.dp)

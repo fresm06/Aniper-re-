@@ -94,7 +94,7 @@ fun MarketDetailModal(
             }
 
             // Author and download count
-            androidx.compose.foundation.layout.Row(
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
@@ -130,14 +130,14 @@ fun MarketDetailModal(
 
             // Tags
             if (character.tags.isNotEmpty()) {
-                androidx.compose.foundation.layout.Row(
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     character.tags.forEach { tag ->
-                        androidx.compose.material3.AssistChip(
+                        AssistChip(
                             onClick = {},
                             label = { Text(text = tag) },
                             modifier = Modifier.padding(end = 4.dp)

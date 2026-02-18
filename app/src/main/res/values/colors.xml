@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pastel Dark Mode Palette -->
+    <color name="background">#1a1a2e</color>
+    <color name="background_secondary">#2a2a4e</color>
+    <color name="text_primary">#f0e8e8</color>
+    <color name="text_secondary">#b0a8a8</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_purple">#c9a8d8</color>
+    <color name="accent_purple_light">#d8b8e8</color>
+    <color name="accent_mint">#a8d8d8</color>
+    <color name="accent_pink">#f4a8c8</color>
+
+    <!-- Status Colors -->
+    <color name="success">#a8d8a8</color>
+    <color name="error">#f4a8a8</color>
+    <color name="warning">#f4d8a8</color>
+
+    <!-- Default Android colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

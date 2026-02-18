@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wallpaper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:author="@string/author_name"
+    android:description="@string/wallpaper_description"
+    android:settingsActivity="com.aniper.app.MainActivity"
+    android:settingsSlope="1"
+    android:supportsAmbientMode="false"
+    android:thumbnail="@drawable/ic_launcher" />

@@ -2,6 +2,7 @@ package com.aniper.app.ui.component.common
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.material3.BorderStroke
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -14,6 +15,7 @@ import com.aniper.app.ui.theme.AccentPurple
 import com.aniper.app.ui.theme.AccentPurpleLight
 import com.aniper.app.ui.theme.BackgroundDark
 import com.aniper.app.ui.theme.TextPrimary
+import com.aniper.app.ui.theme.TextSecondary
 
 @Composable
 fun AnIperButton(
@@ -64,12 +66,7 @@ fun AnIperOutlinedButton(
             contentColor = AccentPurple,
             disabledContentColor = TextPrimary.copy(alpha = 0.5f)
         ),
-        border = androidx.compose.material3.OutlinedButtonDefaults.outlinedButtonBorder.copy(
-            brush = androidx.compose.foundation.BorderStroke(
-                1.dp,
-                borderColor
-            ).brush
-        )
+        border = androidx.compose.material3.BorderStroke(1.dp, borderColor)
     ) {
         Text(text = text)
     }

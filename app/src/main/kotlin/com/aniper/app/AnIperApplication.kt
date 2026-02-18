@@ -6,11 +6,12 @@ import com.aniper.app.data.local.entity.CharacterEntity
 import com.aniper.app.domain.model.Motion
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 @HiltAndroidApp
 class AnIperApplication : Application() {
+    private val applicationScope = MainScope()
 
     override fun onCreate() {
         super.onCreate()
@@ -18,7 +19,7 @@ class AnIperApplication : Application() {
     }
 
     private fun initializeDefaultCharacters() {
-        GlobalScope.launch(Dispatchers.IO) {
+        applicationScope.launch(Dispatchers.IO) {
             val database = AnIperDatabase.getInstance(this@AnIperApplication)
             val characterCount = database.characterDao().getCount()
 

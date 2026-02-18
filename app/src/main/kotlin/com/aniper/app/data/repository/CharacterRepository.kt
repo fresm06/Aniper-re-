@@ -32,7 +32,7 @@ class CharacterRepository(
         return characterDao.getById(id)?.toDomainModel()
     }
 
-    suspend fun saveCharacter(character: Character) {
+    suspend fun saveCharacter(character: Character): Unit {
         characterDao.insert(character.toEntity())
     }
 
@@ -48,7 +48,7 @@ class CharacterRepository(
         appPreferences.setActiveCharacterId(characterId)
     }
 
-    suspend fun insertCharacters(characters: List<Character>) {
+    suspend fun insertCharacters(characters: List<Character>): Unit {
         val entities = characters.map { it.toEntity() }
         characterDao.insertAll(entities)
     }

@@ -64,7 +64,7 @@ class CreateCharacterViewModel @Inject constructor(
 
         viewModelScope.launch {
             _isSaving.value = true
-            val result = characterRepository.saveCharacter(
+            characterRepository.saveCharacter(
                 com.aniper.app.domain.model.Character(
                     id = "user_${System.currentTimeMillis()}",
                     name = _name.value,

@@ -1,5 +1,7 @@
 package com.aniper.app.wallpaper
 
+import android.os.Handler
+import android.os.Looper
 import android.service.wallpaper.WallpaperService
 import android.view.MotionEvent
 import android.view.SurfaceHolder
@@ -8,7 +10,7 @@ import com.aniper.app.data.repository.CharacterRepository
 import com.aniper.app.wallpaper.engine.WallpaperEngine
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,13 +32,15 @@ class AnIperWallpaperService : WallpaperService() {
         private var wallpaperEngine: WallpaperEngine? = null
         private var surfaceWidth = 0
         private var surfaceHeight = 0
+        private val mainHandler = Handler(Looper.getMainLooper())
+        private val serviceScope = MainScope()
 
         override fun onCreate(surfaceHolder: SurfaceHolder) {
             super.onCreate(surfaceHolder)
             setTouchEventsEnabled(true)
 
             // Initialize engine when surface is created
-            GlobalScope.launch(Dispatchers.Main) {
+            mainHandler.post {
                 // Wait for surface to be ready
                 surfaceHolder.addCallback(object : SurfaceHolder.Callback {
                     override fun surfaceCreated(holder: SurfaceHolder) {
@@ -75,7 +79,7 @@ class AnIperWallpaperService : WallpaperService() {
         }
 
         private fun initializeWallpaperEngine() {
-            GlobalScope.launch(Dispatchers.IO) {
+            serviceScope.launch(Dispatchers.IO) {
                 val dimensions = surfaceHolder.surfaceFrame
                 surfaceWidth = dimensions.width()
                 surfaceHeight = dimensions.height()
@@ -83,7 +87,7 @@ class AnIperWallpaperService : WallpaperService() {
         }
 
         private fun observeActiveCharacter() {
-            GlobalScope.launch(Dispatchers.Main) {
+            serviceScope.launch(Dispatchers.Main) {
                 appPreferences.activeCharacterId.collectLatest { characterId ->
                     if (characterId != null) {
                         val character = characterRepository.getCharacterById(characterId)

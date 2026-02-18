@@ -59,7 +59,7 @@ class MarketViewModel @Inject constructor(
 
     fun downloadCharacter(character: MarketCharacter) {
         viewModelScope.launch {
-            val result = characterRepository.insertCharacters(listOf(character.toCharacter()))
+            characterRepository.saveCharacter(character.toCharacter())
             _message.value = "다운로드 완료: ${character.name}"
         }
     }

@@ -64,7 +64,7 @@ fun MarketDetailModal(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
             ) {
-                androidx.compose.foundation.layout.Row(
+                Row(
                     modifier = Modifier.align(Alignment.TopStart),
                     verticalAlignment = Alignment.CenterVertically
                 ) {

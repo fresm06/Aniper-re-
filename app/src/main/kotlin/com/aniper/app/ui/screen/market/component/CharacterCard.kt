@@ -95,7 +95,7 @@ fun CharacterCard(
         )
 
         // Download count
-        androidx.compose.foundation.layout.Row(
+        Row(
             modifier = Modifier.padding(top = 4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {

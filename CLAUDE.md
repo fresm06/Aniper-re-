@@ -72,24 +72,25 @@ app/src/main/kotlin/com/aniper/app/
 ### Post-Modification Build & Push Rule ⚠️
 **이 규칙을 반드시 따르세요:**
 
-모든 코드 수정 후에는 다음 순서를 반드시 실행해야 합니다:
+모든 코드 수정 후에는 **Claude가 자동으로** 다음 순서를 실행합니다:
 1. **코드 수정 작업 완료**
-2. **`./gradlew assembleDebug` 실행하여 빌드 진행** (Claude가 직접 실행)
-3. **빌드 오류 분석 및 자동 수정** (Claude가 직접 수정)
-4. **빌드 성공 확인** (오류가 없을 때까지 반복)
-5. **빌드 성공 후 다음 커밋 메시지와 함께 푸시:**
+2. **`./gradlew assembleDebug` 실행하여 빌드 진행** ← Claude가 직접 자동 실행
+3. **빌드 오류 분석 및 자동 수정** ← Claude가 직접 오류 해결
+4. **빌드 성공 확인** ← 오류가 없을 때까지 자동 반복
+5. **빌드 성공 후 자동으로 GitHub에 푸시:** ← Claude가 직접 실행
    ```bash
-   git add .
-   git commit -m "[기능설명] 코드 수정 및 빌드 성공"
+   git add [수정된 파일들]
+   git commit -m "[커밋 메시지]"
    git push origin main
    ```
-6. **중요: 빌드 전에 `git status`로 추적되지 않는 파일 확인**
-7. **`.env`, 토큰, API 키 등 민감한 정보는 절대 커밋하지 않기**
 
-### 오류 해결 자동화
-- Claude가 빌드를 직접 시도하므로 사용자가 오류 메시지를 복사할 필요 없음
-- 빌드 오류 발생시 자동으로 분석하고 수정
-- 빌드 성공시에만 GitHub에 푸시
+### 자동 실행 프로세스
+- ✅ Claude가 빌드를 직접 시도하고 오류 메시지를 자동으로 수집
+- ✅ 빌드 오류 발생시 자동으로 분석하고 즉시 수정
+- ✅ 빌드 성공 확인 후에만 자동으로 GitHub에 푸시
+- ✅ 사용자가 오류 메시지를 복사/전달할 필요 없음
+- ⚠️ 민감한 정보 자동 필터링: `.env`, 토큰, API 키 등은 커밋하지 않음
+- ⚠️ 빌드 전 자동으로 `git status` 확인하여 추적되지 않는 파일 식별
 
 ### GitHub Repository
 - **Repository**: https://github.com/fresm06/Aniper-re-

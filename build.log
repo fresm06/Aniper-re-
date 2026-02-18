@@ -1,0 +1,3 @@
+cygpath: can't convert empty path
+Error: Could not find or load main class "-Dorg.gradle.appname=gradlew"
+Caused by: java.lang.ClassNotFoundException: "-Dorg.gradle.appname=gradlew"

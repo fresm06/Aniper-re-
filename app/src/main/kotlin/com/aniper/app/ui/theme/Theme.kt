@@ -1,7 +1,6 @@
 package com.aniper.app.ui.theme
 
 import android.os.Build
-import androidx.compose.foundation.isSystemInDarkMode
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -28,13 +27,14 @@ private val DarkColorScheme = darkColorScheme(
 @Composable
 fun AnIperTheme(
     dynamicColor: Boolean = false,
-    darkTheme: Boolean = isSystemInDarkMode(),
+    darkTheme: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    val actualDarkTheme = darkTheme
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else DarkColorScheme
+            if (actualDarkTheme) dynamicDarkColorScheme(context) else DarkColorScheme
         }
         else -> DarkColorScheme
     }

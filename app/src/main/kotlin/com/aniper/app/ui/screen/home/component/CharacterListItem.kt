@@ -10,7 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import RoundedCornerShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import com.aniper.app.domain.model.Character
 import com.aniper.app.domain.model.Motion
 import com.aniper.app.ui.component.common.AnIperButton
-import com.aniper.app.ui.component.common.AnIperOutlinedButton
 import com.aniper.app.ui.component.common.GifImage
 import com.aniper.app.ui.theme.BackgroundSecondary
 import com.aniper.app.ui.theme.TextPrimary
@@ -100,10 +100,11 @@ fun CharacterListItem(
                         onClick = onSummonClick,
                         modifier = Modifier.height(36.dp)
                     )
-                    AnIperOutlinedButton(
+                    AnIperButton(
                         text = "제거",
                         onClick = onRemoveClick,
-                        modifier = Modifier.height(36.dp)
+                        modifier = Modifier.height(36.dp),
+                        containerColor = com.aniper.app.ui.theme.BackgroundSecondary
                     )
                 }
             }

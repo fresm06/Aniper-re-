@@ -178,7 +178,7 @@ object MockMarketDataSource {
             val nameMatches = character.name.contains(query, ignoreCase = true)
             val descMatches = character.description.contains(query, ignoreCase = true)
             val tagsMatch = if (tags.isNotEmpty()) {
-                tags.any { tag -> character.tags.contains(tag, ignoreCase = true) }
+                tags.any { tag -> character.tags.any { it.contains(tag, ignoreCase = true) } }
             } else {
                 true
             }

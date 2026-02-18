@@ -34,7 +34,7 @@ fun LoadingIndicator(
                 Text(
                     text = it,
                     color = TextSecondary,
-                    style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }

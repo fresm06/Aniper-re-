@@ -42,7 +42,7 @@ fun HomeScreen(
     ) {
         Text(
             text = "내 캐릭터",
-            style = androidx.compose.material3.MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
@@ -54,7 +54,7 @@ fun HomeScreen(
                 Text(
                     text = "캐릭터가 없습니다.\n마켓에서 다운로드하거나 새로 만들어보세요.",
                     color = TextSecondary,
-                    style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(32.dp)
                 )
             }

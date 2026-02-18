@@ -26,14 +26,14 @@ fun SettingsScreen(
     ) {
         Text(
             text = "설정",
-            style = androidx.compose.material3.MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
         // General section
         Text(
             text = "일반",
-            style = androidx.compose.material3.MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
             modifier = Modifier.padding(vertical = 12.dp)
         )
@@ -42,14 +42,14 @@ fun SettingsScreen(
 
         Text(
             text = "배경화면 설정",
-            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.bodyMedium,
             color = TextPrimary,
             modifier = Modifier.padding(vertical = 12.dp)
         )
 
         Text(
             text = "홈 화면 설정 메뉴에서 배경화면을 변경할 수 있습니다.",
-            style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodySmall,
             color = TextSecondary,
             modifier = Modifier.padding(bottom = 16.dp)
         )
@@ -57,7 +57,7 @@ fun SettingsScreen(
         // About section
         Text(
             text = "앱 정보",
-            style = androidx.compose.material3.MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleMedium,
             color = TextPrimary,
             modifier = Modifier.padding(vertical = 12.dp)
         )
@@ -66,21 +66,21 @@ fun SettingsScreen(
 
         Text(
             text = "버전 1.0.0",
-            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.bodyMedium,
             color = TextPrimary,
             modifier = Modifier.padding(vertical = 8.dp)
         )
 
         Text(
             text = "개발자: Aniper Team",
-            style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.bodyMedium,
             color = TextPrimary,
             modifier = Modifier.padding(vertical = 8.dp)
         )
 
         Text(
             text = "배경화면 인터랙티브 캐릭터 앱 Aniper에 오신 것을 환영합니다!\n캐릭터를 만들고, 공유하고, 배경화면에서 즐겨보세요.",
-            style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodySmall,
             color = TextSecondary,
             modifier = Modifier.padding(top = 16.dp)
         )

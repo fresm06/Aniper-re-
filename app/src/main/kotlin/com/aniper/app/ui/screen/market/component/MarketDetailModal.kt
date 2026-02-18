@@ -13,7 +13,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
+import RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
@@ -70,7 +70,7 @@ fun MarketDetailModal(
                 ) {
                     Text(
                         text = character.name,
-                        style = androidx.compose.material3.MaterialTheme.typography.headlineSmall,
+                        style = MaterialTheme.typography.headlineSmall,
                         color = TextPrimary
                     )
                     if (character.isApproved) {
@@ -102,7 +102,7 @@ fun MarketDetailModal(
             ) {
                 Text(
                     text = "작성자: ${character.author}",
-                    style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodySmall,
                     color = TextSecondary,
                     modifier = Modifier.weight(1f)
                 )
@@ -114,7 +114,7 @@ fun MarketDetailModal(
                 )
                 Text(
                     text = "${character.downloadCount}",
-                    style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodySmall,
                     color = TextSecondary,
                     modifier = Modifier.padding(start = 4.dp)
                 )
@@ -123,7 +123,7 @@ fun MarketDetailModal(
             // Character description
             Text(
                 text = character.description,
-                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium,
                 color = TextSecondary,
                 modifier = Modifier.padding(vertical = 12.dp)
             )
@@ -189,7 +189,7 @@ fun MotionGridItem(
             modifier = Modifier
                 .size(100.dp)
                 .background(
-                    androidx.compose.material3.MaterialTheme.colorScheme.surface,
+                    MaterialTheme.colorScheme.surface,
                     RoundedCornerShape(8.dp)
                 )
                 .clip(RoundedCornerShape(8.dp))
@@ -202,7 +202,7 @@ fun MotionGridItem(
         }
         Text(
             text = motion.displayName,
-            style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
+            style = MaterialTheme.typography.labelSmall,
             color = TextSecondary,
             modifier = Modifier.padding(top = 4.dp)
         )

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.GetApp
@@ -49,7 +49,7 @@ fun CharacterCard(
                 .fillMaxWidth()
                 .size(140.dp)
                 .background(
-                    androidx.compose.material3.MaterialTheme.colorScheme.surface,
+                    MaterialTheme.colorScheme.surface,
                     RoundedCornerShape(8.dp)
                 )
                 .clip(RoundedCornerShape(8.dp)),
@@ -83,14 +83,14 @@ fun CharacterCard(
         // Character info
         Text(
             text = character.name,
-            style = androidx.compose.material3.MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleSmall,
             color = TextPrimary,
             modifier = Modifier.padding(top = 8.dp)
         )
 
         Text(
             text = character.author,
-            style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodySmall,
             color = TextSecondary
         )
 
@@ -107,7 +107,7 @@ fun CharacterCard(
             )
             Text(
                 text = "${character.downloadCount}",
-                style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmall,
                 color = TextSecondary,
                 modifier = Modifier.padding(start = 4.dp)
             )

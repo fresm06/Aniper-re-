@@ -95,7 +95,7 @@ fun TagInput(
         if (tags.size < 3) {
             Text(
                 text = "${tags.size}/3 태그 추가됨",
-                style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(top = 4.dp)
             )
         }

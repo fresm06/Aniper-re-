@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.BorderStroke
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -38,13 +39,13 @@ fun AnIperButton(
             disabledContainerColor = disabledContainerColor,
             disabledContentColor = disabledContentColor
         ),
-        shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(12.dp),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         interactionSource = remember { MutableInteractionSource() }
     ) {
         Text(
             text = text,
-            style = androidx.compose.material3.MaterialTheme.typography.labelLarge
+            style = MaterialTheme.typography.labelLarge
         )
     }
 }
@@ -61,7 +62,7 @@ fun AnIperOutlinedButton(
         onClick = onClick,
         modifier = modifier,
         enabled = enabled,
-        shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(12.dp),
         colors = androidx.compose.material3.OutlinedButtonDefaults.outlinedButtonColors(
             contentColor = AccentPurple,
             disabledContentColor = TextPrimary.copy(alpha = 0.5f)

@@ -43,7 +43,7 @@ fun MarketScreen(
     ) {
         Text(
             text = "마켓",
-            style = androidx.compose.material3.MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
@@ -65,7 +65,7 @@ fun MarketScreen(
                 Text(
                     text = "사용 가능한 캐릭터가 없습니다.",
                     color = TextSecondary,
-                    style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         } else {

@@ -2,7 +2,7 @@ package com.aniper.app.ui.screen.market.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
+import RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -39,7 +39,7 @@ fun SearchBar(
             Text(
                 text = "캐릭터 검색...",
                 color = TextSecondary,
-                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.bodyMedium
             )
         },
         leadingIcon = {
@@ -62,7 +62,7 @@ fun SearchBar(
         } else {
             null
         },
-        textStyle = androidx.compose.material3.MaterialTheme.typography.bodyMedium.copy(
+        textStyle = MaterialTheme.typography.bodyMedium.copy(
             color = TextPrimary
         ),
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),

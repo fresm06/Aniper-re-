@@ -67,7 +67,7 @@ fun AnIperNavGraph(
                             Text(
                                 text = screen.label,
                                 color = if (currentRoute == screen.route) AccentPurple else TextSecondary,
-                                style = androidx.compose.material3.MaterialTheme.typography.labelSmall
+                                style = MaterialTheme.typography.labelSmall
                             )
                         },
                         selected = currentRoute == screen.route,

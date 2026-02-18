@@ -73,16 +73,23 @@ app/src/main/kotlin/com/aniper/app/
 **이 규칙을 반드시 따르세요:**
 
 모든 코드 수정 후에는 다음 순서를 반드시 실행해야 합니다:
-1. `./gradlew assembleDebug` 실행하여 빌드 진행
-2. 빌드 오류가 발생하면 오류를 분석하고 수정
-3. 빌드 성공 후 다음 커밋 메시지와 함께 푸시:
+1. **코드 수정 작업 완료**
+2. **`./gradlew assembleDebug` 실행하여 빌드 진행** (Claude가 직접 실행)
+3. **빌드 오류 분석 및 자동 수정** (Claude가 직접 수정)
+4. **빌드 성공 확인** (오류가 없을 때까지 반복)
+5. **빌드 성공 후 다음 커밋 메시지와 함께 푸시:**
    ```bash
    git add .
-   git commit -m "[기능설명] 코드 수정 사항"
+   git commit -m "[기능설명] 코드 수정 및 빌드 성공"
    git push origin main
    ```
-4. 푸시 전에 항상 `git status`로 추적되지 않는 파일 확인
-5. `.env`, 토큰, API 키 등 민감한 정보는 절대 커밋하지 않기
+6. **중요: 빌드 전에 `git status`로 추적되지 않는 파일 확인**
+7. **`.env`, 토큰, API 키 등 민감한 정보는 절대 커밋하지 않기**
+
+### 오류 해결 자동화
+- Claude가 빌드를 직접 시도하므로 사용자가 오류 메시지를 복사할 필요 없음
+- 빌드 오류 발생시 자동으로 분석하고 수정
+- 빌드 성공시에만 GitHub에 푸시
 
 ### GitHub Repository
 - **Repository**: https://github.com/fresm06/Aniper-re-

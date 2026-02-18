@@ -52,7 +52,7 @@ fun CreateCharacterScreen(
     ) {
         Text(
             text = "캐릭터 생성",
-            style = androidx.compose.material3.MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
@@ -65,7 +65,7 @@ fun CreateCharacterScreen(
                 .fillMaxWidth()
                 .padding(bottom = 12.dp),
             maxLines = 1,
-            textStyle = androidx.compose.material3.MaterialTheme.typography.bodyMedium.copy(
+            textStyle = MaterialTheme.typography.bodyMedium.copy(
                 color = TextPrimary
             )
         )
@@ -84,7 +84,7 @@ fun CreateCharacterScreen(
         // Tags
         Text(
             text = "태그 (3개)",
-            style = androidx.compose.material3.MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleSmall,
             color = TextPrimary,
             modifier = Modifier.padding(bottom = 8.dp)
         )
@@ -101,7 +101,7 @@ fun CreateCharacterScreen(
         // Motion uploads
         Text(
             text = "모션 이미지 추가",
-            style = androidx.compose.material3.MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleSmall,
             color = TextPrimary,
             modifier = Modifier.padding(bottom = 8.dp)
         )
@@ -128,7 +128,7 @@ fun CreateCharacterScreen(
         message?.let {
             Text(
                 text = it,
-                style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodySmall,
                 color = TextSecondary,
                 modifier = Modifier.padding(bottom = 8.dp)
             )

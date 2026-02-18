@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CloudUpload
 import androidx.compose.material3.Icon
@@ -53,7 +53,7 @@ fun MotionUploadSlot(
             if (hasImage) {
                 Text(
                     text = "✓",
-                    style = androidx.compose.material3.MaterialTheme.typography.headlineSmall,
+                    style = MaterialTheme.typography.headlineSmall,
                     color = AccentPurple
                 )
             } else {
@@ -68,7 +68,7 @@ fun MotionUploadSlot(
 
         Text(
             text = motion.displayName,
-            style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
+            style = MaterialTheme.typography.labelSmall,
             color = TextSecondary,
             modifier = androidx.compose.foundation.layout.Modifier.padding(top = 4.dp)
         )

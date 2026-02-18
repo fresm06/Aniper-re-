@@ -9,12 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items as lazyItems
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
@@ -52,126 +51,133 @@ fun MarketDetailModal(
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxWidth(0.9f)
                 .background(BackgroundSecondary, RoundedCornerShape(16.dp))
                 .clip(RoundedCornerShape(16.dp))
                 .padding(24.dp)
-                .verticalScroll(rememberScrollState())
         ) {
-            // Header with close button
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.TopEnd
-            ) {
-                Row(
-                    modifier = Modifier.align(Alignment.TopStart),
-                    verticalAlignment = Alignment.CenterVertically
+            item {
+                // Header with close button
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.TopEnd
                 ) {
-                    Text(
-                        text = character.name,
-                        style = MaterialTheme.typography.headlineSmall,
-                        color = TextPrimary
-                    )
-                    if (character.isApproved) {
+                    Row(
+                        modifier = Modifier.align(Alignment.TopStart),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = character.name,
+                            style = MaterialTheme.typography.headlineSmall,
+                            color = TextPrimary
+                        )
+                        if (character.isApproved) {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = "Approved",
+                                tint = Success,
+                                modifier = Modifier
+                                    .size(24.dp)
+                                    .padding(start = 8.dp)
+                            )
+                        }
+                    }
+                    IconButton(onClick = onDismiss) {
                         Icon(
-                            imageVector = Icons.Default.Check,
-                            contentDescription = "Approved",
-                            tint = Success,
-                            modifier = Modifier
-                                .size(24.dp)
-                                .padding(start = 8.dp)
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "Close",
+                            tint = TextSecondary
                         )
                     }
                 }
-                IconButton(onClick = onDismiss) {
-                    Icon(
-                        imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
-                        tint = TextSecondary
-                    )
-                }
-            }
 
-            // Author and download count
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "작성자: ${character.author}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = TextSecondary,
-                    modifier = Modifier.weight(1f)
-                )
-                Icon(
-                    imageVector = Icons.Default.GetApp,
-                    contentDescription = "Downloads",
-                    tint = TextSecondary,
-                    modifier = Modifier.size(14.dp)
-                )
-                Text(
-                    text = "${character.downloadCount}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = TextSecondary,
-                    modifier = Modifier.padding(start = 4.dp)
-                )
-            }
-
-            // Character description
-            Text(
-                text = character.description,
-                style = MaterialTheme.typography.bodyMedium,
-                color = TextSecondary,
-                modifier = Modifier.padding(vertical = 12.dp)
-            )
-
-            // Tags
-            if (character.tags.isNotEmpty()) {
+                // Author and download count
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 12.dp),
+                        .padding(vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    character.tags.forEach { tag ->
-                        AssistChip(
-                            onClick = {},
-                            label = { Text(text = tag) },
-                            modifier = Modifier.padding(end = 4.dp)
-                        )
+                    Text(
+                        text = "작성자: ${character.author}",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextSecondary,
+                        modifier = Modifier.weight(1f)
+                    )
+                    Icon(
+                        imageVector = Icons.Default.GetApp,
+                        contentDescription = "Downloads",
+                        tint = TextSecondary,
+                        modifier = Modifier.size(14.dp)
+                    )
+                    Text(
+                        text = "${character.downloadCount}",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextSecondary,
+                        modifier = Modifier.padding(start = 4.dp)
+                    )
+                }
+
+                // Character description
+                Text(
+                    text = character.description,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextSecondary,
+                    modifier = Modifier.padding(vertical = 12.dp)
+                )
+
+                // Tags
+                if (character.tags.isNotEmpty()) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        character.tags.forEach { tag ->
+                            AssistChip(
+                                onClick = {},
+                                label = { Text(text = tag) },
+                                modifier = Modifier.padding(end = 4.dp)
+                            )
+                        }
                     }
                 }
             }
 
             // Motion grid (2x4)
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.fillMaxWidth(),
-                content = {
-                    items(Motion.values()) { motion ->
-                        MotionGridItem(
-                            motion = motion,
-                            imageUrl = character.motions[motion],
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(4.dp)
-                        )
+            item {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    val motions = Motion.values().toList()
+                    for (i in motions.indices step 2) {
+                        Row(modifier = Modifier.fillMaxWidth()) {
+                            for (j in i until minOf(i + 2, motions.size)) {
+                                val motion = motions[j]
+                                Box(modifier = Modifier.weight(1f)) {
+                                    MotionGridItem(
+                                        motion = motion,
+                                        imageUrl = character.motions[motion],
+                                        modifier = Modifier.padding(4.dp)
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
-            )
+            }
 
             // Download button
-            AnIperButton(
-                text = "다운로드",
-                onClick = onDownloadClick,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-            )
+            item {
+                AnIperButton(
+                    text = "다운로드",
+                    onClick = onDownloadClick,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp)
+                )
+            }
         }
     }
 }
